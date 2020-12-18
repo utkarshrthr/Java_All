@@ -3,10 +3,30 @@ package com.algo.searching;
 public class BinarySearch {
 	public static void main(String[] args) {
 		int[] arr = {1, 6, 17, 22, 28, 29, 33, 35};
-		System.out.println(binarySearch(arr, 171));
+		System.out.println(binarySearchIterative(arr, 17));
 	}
 	
-	private static int binarySearch(int[] arr, int element) {
+	private static int binarySearchIterative(int[] ar, int element) {
+		int st = 0;
+		int en = ar.length;
+		int mid = (st+en)/2;
+		for(int i = st; i < en; i++) {
+			if(element == ar[mid]) {
+				return mid;
+			}
+			else if(element < ar[mid]) {
+				en = mid;
+				mid = (st+en)/2;
+			}
+			else {
+				st = mid;
+				mid = (st+en)/2;
+			}
+		}
+		return -1;
+	}
+	
+	private static int binarySearchRecursive(int[] arr, int element) {
 		int len = arr.length;
 		return search(arr, 0, len/2, len-1, element);
 	}
