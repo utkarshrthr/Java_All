@@ -2,9 +2,9 @@ package com.ds.stack;
 
 public class StackL<T extends Comparable<T>> {
 
-	private static int MAX_SIZE = 40;
+	private int MAX_SIZE = 40;
 	
-	private static int SIZE = 0;
+	private int SIZE = 0;
 	
 	private Element<T> top;
 	
@@ -12,13 +12,13 @@ public class StackL<T extends Comparable<T>> {
 		top = null;
 	}
 	
-	StackL(int capacity){
+	public StackL(int capacity){
 		MAX_SIZE = capacity;
 		top = null;
 	}
 	
 	public void push(T t) throws StackOverflowException {
-		if(SIZE ==  MAX_SIZE) {
+		if(SIZE == MAX_SIZE) {
 			throw new StackOverflowException();
 		}
 		Element<T> newElement = new Element<>(t, top);
@@ -37,14 +37,14 @@ public class StackL<T extends Comparable<T>> {
 	}
 	
 	public Element<T> peek() throws StackUnderflowException {
-		if(SIZE == 0) {
+		if(top == null) {
 			throw new StackUnderflowException();
 		}
 		return top;
 	}
 	
 	public boolean isEmpty() {
-		return SIZE == 0;
+		return top == null;
 	}
 	
 	public boolean isFull() {
@@ -60,11 +60,12 @@ public class StackL<T extends Comparable<T>> {
 		if(top == null)
 			return "[]";
 		StringBuilder sb = new StringBuilder("[");
-		while(top.getNext() != null) {
-			sb.append(top.getData()).append(", ");
-			top = top.getNext();
+		Element<T> el = top;
+		while(el.getNext() != null) {
+			sb.append(el.getData()).append(", ");
+			el = el.getNext();
 		}
-		sb.append(top.getData()).append("]");
+		sb.append(el.getData()).append("]");
 		return sb.toString();
 	}
 }

@@ -27,9 +27,9 @@ public class SpecialStackO1 {
 	
 	public Integer pop() {
 		Integer temp = actual.peek().getData();
-		if(!mins.isEmpty() && temp == mins.peek().getData()) {
+		/*if(!mins.isEmpty() && temp == mins.peek().getData()) {
 			mins.pop();
-		}
+		}*/
 		return actual.isEmpty() ? null : actual.pop().getData();
 	}
 	
