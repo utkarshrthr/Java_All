@@ -1,52 +1,70 @@
 package com.ds.linkedlist.doubly;
 
-
+// HEAD -> [<-][DATA][->]
 public class DoublyLinkedList<T extends Object> {
 	
-	public Node<T> head;
+	private Node<T> head;
+	private int SIZE = 0;
 	
 	public DoublyLinkedList() {
-		//
+		
 	}
 	
 	public DoublyLinkedList(T t) {
 		this.head = new Node<>(t);
-		this.head.next = this.head.prev = null;
 	}
 	
-	public void addNext(T t) {
+	public Node<T> getHead() {
+		return head;
+	}
+
+	public void setHead(Node<T> head) {
+		this.head = head;
+	}
+
+	/** ADDING ELEMENTS TO DLL */
+	/** ADDING AT FRONT */
+	public void prepend(T t) {
+		Node<T> node = new Node<>(t);
+		node.setNext(head);
+		head = node;
+		SIZE++;
+	}
+	
+	/** ADDING AT END */
+	public void append(T t) {
+		SIZE++;
 		if(head == null) {
-			 head = new Node<>(t);
-			 return;
+			head = new Node<>(t);
+			return;
 		}
 		Node<T> temp = head;
-		while(temp.next != null) {
-			temp = temp.next;
+		while(temp.getNext() != null) {
+			temp = temp.getNext();
 		}
-		temp.next = new Node<>(t);
+		temp.setNext(new Node<>(t));
 	}
 	
-	public void addPrev(T t) {
-		Node<T> temp = head;
+	/** ADDING AT GIVEN POSITION */
+	public void insertAt(T t, int index) {
 		
-		head.prev = temp;
 	}
+	
+	
+	/** REVERSING A LINKED LIST */
 	
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		Node<T> temp = head;
-		if(temp == null) return "[]";
-		
-		while(temp.prev != null) temp = temp.prev;
-		
-		builder.append("[");
-		while(temp.next!=null) {
-			builder.append(temp.t).append(", ");
-			temp = temp.next;
+		if(head == null) {
+			return "[]";
 		}
-		if(builder.length()>1) builder.delete(builder.length()-2, builder.length());
-		builder.append("]");
+		StringBuilder builder = new StringBuilder("[");
+		Node<T> temp = head;
+		while(temp.getNext() != null) {
+			builder.append(temp.getData()).append(", ");
+			temp = temp.getNext();
+		}
+		builder.append(temp.getData()).append("]");
 		return builder.toString();
 	}
 }
