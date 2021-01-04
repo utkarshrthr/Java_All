@@ -47,10 +47,6 @@ public class BinaryTreeImpl {
 		return isIdentical(root1.left, root2.left) && isIdentical(root1.right, root2.right);
 	} 
 	
-	private static void bfs(Node<Integer> root) {
-		
-	}
-	
 	private static int heightRecursive(Node<Integer> root) {
 		// recursive
 		if(root == null) return 0;
