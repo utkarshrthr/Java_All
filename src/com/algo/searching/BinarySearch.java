@@ -1,6 +1,7 @@
 package com.algo.searching;
 
 public class BinarySearch {
+	
 	public static void main(String[] args) {
 		int[] arr = {1, 6, 17, 22, 28, 29, 33, 35};
 		System.out.println(binarySearchIterative(arr, 17));

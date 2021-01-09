@@ -3,7 +3,13 @@ package com.ds.linkedlist;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LinkedList<T extends Object> {
+/*
+public class LinkedList<T extends Comparable<T>> implements Cloneable {
+	
+} 
+*/
+
+public class LinkedList<T> extends Object {
 	public Node<T> head;
 	private int SIZE = 0;
 	public LinkedList() {
@@ -11,7 +17,7 @@ public class LinkedList<T extends Object> {
 	}
 	
 	public LinkedList(T t) {
-		SIZE++;
+		SIZE++; 
 		this.head = new Node<>(t);
 		this.head.next = null;
 	}

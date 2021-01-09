@@ -13,7 +13,7 @@ public class ReentrantLockI extends Thread{
 		ReentrantLock lock = new ReentrantLock();
 		
 		lock.lock();
-		lock.lock();
+		//lock.lock();
 		
 		System.out.println(lock.isLocked());
 		System.out.println(lock.getHoldCount());

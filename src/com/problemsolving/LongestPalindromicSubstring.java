@@ -1,5 +1,7 @@
 package com.problemsolving;
 
+import java.util.Arrays;
+
 public class LongestPalindromicSubstring {
 	public static void main(String[] args) {
 		String input = "BCDCBA";

@@ -1,6 +1,6 @@
 package com.ds.tree.binary;
 
-public class Node<T extends Object> {
+public class Node<T extends Comparable<T>> {
 	public T data;
 	Node<T> left, right;
 	

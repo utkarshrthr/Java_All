@@ -6,9 +6,49 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 		int[] ar = {48, 36, 13, 52, 19, 94, 21};
-		sort(ar);
+		mergeSort(ar, 0, ar.length-1);
 		System.out.println(Arrays.toString(ar));
 	}
+	
+	
+	public static void mergeSort(int[] ar, int start, int end) {
+		int mid = (start+end)/2;
+		if(start<end) {
+			mergeSort(ar, start, mid);
+			mergeSort(ar, mid + 1, end);
+		}
+		int i = 0, first = start, last = mid + 1;
+	    int[] tmp = new int[end - start + 1];
+
+	    while (first <= mid && last <= end) {
+	    	if(ar[first] < ar[last]) {
+	    		tmp[i] = ar[first];
+	    		first++;
+	    	}
+	    	else {
+	    		tmp[i] = ar[last];
+	    		last++;
+	    	}
+	    	i++;
+	    }
+	    while (first <= mid) {
+	      tmp[i] = ar[first];
+	      i++;
+	      first++;
+	    }
+	    while (last <= end) {
+	      tmp[i] = ar[last];
+	      i++;
+	      last++;
+	    }
+	    i = 0;
+	    while (start <= end) {
+	      ar[start] = tmp[i];
+	      i++;
+	      start++;
+	    }
+	}
+	
 	
 	private static void sort(int[] ar) {
 		divideArray(0, ar.length-1, ar);

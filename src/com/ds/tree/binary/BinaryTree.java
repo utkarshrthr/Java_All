@@ -2,7 +2,7 @@ package com.ds.tree.binary;
 
 import java.text.MessageFormat;
 
-public class BinaryTree<T> {
+public class BinaryTree<T extends Comparable<T>> {
 	Node<T> root;
 	
 	BinaryTree(T key) { 

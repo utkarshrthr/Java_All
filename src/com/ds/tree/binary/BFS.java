@@ -29,7 +29,7 @@ public class BFS {
 		Queue<Node> queue = new LinkedList<>();
 		queue.add(root);
 		while(!queue.isEmpty()) {
-			Node<Object> top = queue.remove();
+			Node top = queue.remove();
 			System.out.print(top + " ");
 			if(top.left != null)
 				queue.add(top.left);
