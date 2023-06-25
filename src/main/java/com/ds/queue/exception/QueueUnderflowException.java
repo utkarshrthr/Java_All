@@ -1,4 +1,4 @@
-package com.ds.queue;
+package com.ds.queue.exception;
 
 public class QueueUnderflowException extends RuntimeException {
 

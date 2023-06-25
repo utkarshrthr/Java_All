@@ -1,5 +1,7 @@
-package com.ds.queue;
+package com.ds.queue.primitive;
 
+import com.ds.queue.exception.QueueOverflowException;
+import com.ds.queue.exception.QueueUnderflowException;
 import com.ds.stack.StackL;
 
 public class QueueUsing2Stack {

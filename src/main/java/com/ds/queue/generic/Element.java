@@ -1,4 +1,4 @@
-package com.ds.queue;
+package com.ds.queue.generic;
 
 public class Element<T> {
 

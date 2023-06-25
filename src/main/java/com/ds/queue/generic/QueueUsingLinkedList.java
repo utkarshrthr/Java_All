@@ -1,4 +1,6 @@
-package com.ds.queue;
+package com.ds.queue.generic;
+
+import com.ds.queue.exception.QueueOverflowException;
 
 public class QueueUsingLinkedList<T extends Object> {
 	

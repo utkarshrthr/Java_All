@@ -1,5 +1,6 @@
 package com.ds.queue;
 
+import com.ds.queue.primitive.CircularQueueUsingArray;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
