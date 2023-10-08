@@ -2,34 +2,37 @@ package com.core.multithreading;
 
 public class JoinInDetail implements Runnable {
 
-	private String threadName;
-	
+	private static Thread mainThread = null;
+	private final String name;
+
 	public JoinInDetail(String name) {
-		this.threadName = name;
+		this.name = name;
 	}
-	
-	private static Thread t1;
-	private static Thread t2;
-	
-	public static void main(String[] args) {
-		t1 = new Thread(new JoinInDetail("First Thread"));
-		t2 = new Thread(new JoinInDetail("Second Thread"));
-		
-		t1.start();
-		t2.start();
+
+	public static void main(String[] args) throws InterruptedException {
+
+		mainThread = Thread.currentThread();
+
+		System.out.println(mainThread.getName() + ": " + mainThread.isAlive());
+
+		var t = new Thread(new JoinInDetail("Sub-Thread-1"));
+
+		t.start();
+
+		t.join();
+
+		System.out.println("Exiting main thread");
+
 	}
 
 	@Override
 	public void run() {
-		System.out.println(threadName + " is started");
-		for(int i = 0; i < 50; i++) {
-			try {
-				Thread.sleep(1000);
-				System.out.println(threadName + " is running");
-			} 
-			catch (InterruptedException e) {
-				e.printStackTrace();
+		for(var i = 0; i < 10; i++){
+			System.out.println("Thread: " + name + " is running.");
+			try { Thread.sleep(100);
+				System.out.println("Thread: " + mainThread.getName() + " is active: " + mainThread.isAlive());
 			}
+			catch (InterruptedException e){}
 		}
 	}
 }
